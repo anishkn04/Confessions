@@ -26,7 +26,7 @@
     </form>
   </div>
 
-  <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+
 
   <script src="../javaScript/script.js"></script>
 </body>
