@@ -1,3 +1,28 @@
+<?php
+if (isset($_POST['login'])) {
+  $email    = $_POST['email'];
+  $password = $_POST['password'];
+  include './mysqlConnection.php';
+
+  $checkQuery = "SELECT email, `password` FROM users";
+  $checkSql   = mysqli_query($connection, $checkQuery);
+  while ($row = mysqli_fetch_row($checkSql)) {
+    if ($row[0] == $email) {
+      if($row[1]== $password){
+        echo("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
+        die();
+      }
+      echo("<script> alert('Incorret Password!'); window.location.href='./login.php'; </script>");
+      die();
+    }
+    echo ("<script> alert('No such user found!'); window.location.href='./login.php'; </script>");
+    die();
+  }
+  echo("Something went terribly wrong!");
+  die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +42,12 @@
   ?>
 
   <div class="login-space">
-    <form action="">
-      <input type="email" id="email" class="input-field" placeholder="Email">
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+      <input type="email" id="email" name="email" class="input-field" placeholder="Email">
       <p class="invalid_email" id="ivalid_email"></p>
-      <input type="password" id="password" class="input-field" placeholder="Password">
+      <input type="password" id="password" name="password" class="input-field" placeholder="Password">
       <p class="invalid_password" id="invalid_password"></p>
-      <button type="submit" id="submit">Login</button>
+      <button type="submit" id="submit" name="login">Login</button>
       <p><a href="./register.php">Register?</a></p>
     </form>
   </div>
