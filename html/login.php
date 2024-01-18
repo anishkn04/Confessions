@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+$email = $password = "";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,9 +38,8 @@
   </div>
 
 <?php
-session_start();
 
-$email = $password = "";
+
 
 if (isset($_POST['login'])) {
 
