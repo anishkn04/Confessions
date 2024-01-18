@@ -1,4 +1,6 @@
 <?php
+session_start();
+
   $email = $password = "";
 
   if (isset($_POST['login'])) {
@@ -15,6 +17,7 @@
       $row = mysqli_fetch_row($checkSql);
   
       if ($row[1] == $password) {
+        $_SESSION['email'] = $email;
         echo("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
           die();
       } else {
