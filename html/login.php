@@ -18,11 +18,12 @@
 
   <div class="login-space">
     <form action="">
-      <input type="text" id="email" placeholder="Email">
+      <input type="email" id="email" class="input-field" placeholder="Email">
       <p class="invalid_email" id="ivalid_email"></p>
-      <input type="password" id="password" placeholder="Password">
+      <input type="password" id="password" class="input-field" placeholder="Password">
       <p class="invalid_password" id="invalid_password"></p>
       <button type="submit" id="submit">Login</button>
+      <p><a href="./register.php">Register?</a></p>
     </form>
   </div>
 
