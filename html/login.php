@@ -1,28 +1,29 @@
 <?php
-if (isset($_POST['login'])) {
+  $email = $password = "";
+
+  if (isset($_POST['login'])) {
+    
   $email    = $_POST['email'];
   $password = $_POST['password'];
   include './mysqlConnection.php';
 
-  $checkQuery = "SELECT email, `password` FROM users";
-  $checkSql   = mysqli_query($connection, $checkQuery);
-  while ($row = mysqli_fetch_row($checkSql)) {
-    if ($row[0] == $email) {
-      if($row[1]== $password){
+  $checkQuery = "SELECT email, `password` FROM users WHERE email = '$email'";
+
+  $checkSql = mysqli_query($connection, $checkQuery);
+
+  if (mysqli_num_rows($checkSql) > 0) {
+      $row = mysqli_fetch_row($checkSql);
+  
+      if ($row[1] == $password) {
         echo("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
-        die();
+          die();
+      } else {
+        echo("<script> document.getElementById('invalid_pass').innerText = 'Incorrect Password!'; </script>");
       }
-      echo("<script> alert('Incorret Password!'); window.location.href='./login.php'; </script>");
-      die();
-    }
+  } else {
     echo ("<script> alert('No such user found!'); window.location.href='./login.php'; </script>");
-    die();
+      die();
   }
-  echo("Something went terribly wrong!");
-  die();
-
-
-
 }
 ?>
 
@@ -46,8 +47,10 @@ if (isset($_POST['login'])) {
 
   <div class="login-space">
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-      <input type="email" id="email" name="email" class="input-field" placeholder="Email">
-      <p class="invalid_email" id="ivalid_email"></p>
+    <input type="email" id="email" name="email" class="input-field" placeholder="Email" value="<?php echo $email ?>">
+
+
+      <p class="invalid_email" id="invalid_email"></p>
       <input type="password" id="password" name="password" class="input-field" placeholder="Password">
       <p class="invalid_password" id="invalid_password"></p>
       <button type="submit" id="submit" name="login">Login</button>
