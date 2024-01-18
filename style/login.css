@@ -119,8 +119,7 @@ body {
   transform: scale(1.1); /* Slightly increase size on hover */
 }
 
-#email,
-#password {
+.input-field {
     width: 80%;
     height: 10%;
     border-radius: 10px;
@@ -128,6 +127,7 @@ body {
     padding: 10px;
     outline: none;
     font-family: "Salsa", cursive;
+    margin: 5px auto;
 }
 
 form
