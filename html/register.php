@@ -21,6 +21,8 @@ if (isset($_POST['submit'])) {
     $registerSql   = mysqli_query($connection, $registerQuery);
     echo ("<script> alert(`Let's confess!`); window.location.href = './login.php'</script></script>");
     die();
+
+    
 }
 ?>
 
