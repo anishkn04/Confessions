@@ -44,9 +44,3 @@ function register() {
   }
 }
 
-
-
-function mailTaker()
-{
-  
-}
