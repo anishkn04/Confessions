@@ -43,3 +43,10 @@ function register() {
     return false;
   }
 }
+
+
+
+function mailTaker()
+{
+  
+}

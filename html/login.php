@@ -26,7 +26,7 @@ $email = $password = "";
 
   <div class="login-space">
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-    <input type="email" id="email" name="email" class="input-field" placeholder="Email" value="<?php echo $email ?>">
+    <input type="email" id="email" name="email" class="input-field" placeholder="Email" value=<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>>
 
 
       <p class="invalid_email" id="invalid_email"></p>
