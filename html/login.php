@@ -2,7 +2,9 @@
 
 session_start();
 
-$email = $password = "";
+if(isset($_SESSION['email'])){
+  header("Location: ./confessions.php");
+}
 
 ?>
 

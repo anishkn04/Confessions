@@ -3,7 +3,7 @@ function loginRedirect() {
 }
 
 function logout(btn){
-  window.location.href = "..html/logout.php";
+  window.location.href = "../html/logout.php";
 }
 
 function isStrongPassword(password) {
