@@ -41,31 +41,48 @@ $email = $password = "";
 
 
 
+
+
 if (isset($_POST['login'])) {
 
   $email    = $_POST['email'];
   $password = $_POST['password'];
   include './mysqlConnection.php';
 
-  $checkQuery = "SELECT email, `password` FROM users WHERE email = '$email'";
+  $checkQuery = "SELECT email, pass FROM users WHERE email = '$email'";
 
   $checkSql = mysqli_query($connection, $checkQuery);
 
   if (mysqli_num_rows($checkSql) > 0) {
-    $row = mysqli_fetch_row($checkSql);
+      $row = mysqli_fetch_row($checkSql);
 
-    if ($row[1] == $password) {
-      $_SESSION['email'] = $email;
-      echo ("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
-      die();
-    } else {
-      echo ("<script> document.getElementById('invalid_password').innerText = 'Incorrect Password!'; </script>");
-    }
+      if ($row[1] == $password) {
+          $_SESSION['email'] = $email;
+          echo ("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
+          die();
+      } else {
+          // Incorrect password, redirect with email parameter
+          echo ("<script> 
+                  document.getElementById('invalid_password').innerText = 'Incorrect Password!';
+                  document.getElementById('email').value = '" . htmlspecialchars($email) . "';
+                  window.location.href='./login.php?email=" . urlencode($email) . "';
+                </script>");
+          die();
+      }
   } else {
-    echo ("<script> document.getElementById('invalid_email').innerText = 'Incorrect Email!' </script>");
-    die();
+      // User not registered, redirect with email parameter
+      echo ("<script> 
+              window.location.href='./login.php?email=" . urlencode($email) . "'; 
+              document.getElementById('invalid_email').innerText = 'User Not Registered!';
+              document.getElementById('email').value = '" . htmlspecialchars($email) . "';
+            </script>");
+      die();
   }
 }
+
+// ...
+
+
 ?>
 
   <script src="../javaScript/script.js"></script>

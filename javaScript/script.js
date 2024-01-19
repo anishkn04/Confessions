@@ -44,3 +44,18 @@ function register() {
   }
 }
 
+// function emailRetaintion() {
+//   let mail = document.getElementById("email").value;
+
+//   if (mail.trim() === "") {
+//       alert("Email cannot be empty!");
+//       return false;
+//   }
+
+//   document.getElementById("email").value = mail;
+//   return true;
+// }
+
+
+
+
