@@ -86,6 +86,11 @@ body {
   cursor: pointer;
 }
 
+#logout_btn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .confession {
   display: flex;
   flex-direction: column;
