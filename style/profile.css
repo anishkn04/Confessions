@@ -1,0 +1,53 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Salsa", cursive;
+    background-color: #FCD19C;
+}
+
+.navBar
+{
+    margin-top: 23px;
+    display: flex;
+    background-color: #F24822;
+   width: 96vw;
+    height: 68px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img
+{
+    width: 80px;
+    height: 80px;
+}
+
+.items-flex
+{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.item-a
+{
+    text-decoration: none;
+    color: wheat;
+    font-size: 30px;
+    transition: all 0.5;
+    padding: 30px;
+}
+
+.item-a:hover
+{
+    color: rgb(69, 180, 175);
+}
