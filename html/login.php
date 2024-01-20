@@ -2,7 +2,9 @@
 
 session_start();
 
-$email = $password = "";
+if(isset($_SESSION['email'])){
+  header("Location: ./confessions.php");
+}
 
 ?>
 
@@ -55,7 +57,6 @@ if (isset($_POST['login'])) {
   include './mysqlConnection.php';
 
   $checkQuery = "SELECT email, pass FROM users WHERE email = '$email'";
-
   $checkSql = mysqli_query($connection, $checkQuery);
 
   if (mysqli_num_rows($checkSql) > 0) {
@@ -63,6 +64,7 @@ if (isset($_POST['login'])) {
 
       if ($row[1] == $password) {
           $_SESSION['email'] = $email;
+          echo ("<script> console.log(`$email`); </script>");
           echo ("<script> alert('You may now enter the site!'); window.location.href='./confessions.php'; </script>");
           die();
       } else {

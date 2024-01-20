@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <nav class="navBar">
       <div id="logo-container">
         <img
@@ -10,6 +14,12 @@
         <p>Confess Your Love.</p>
       </div>
       <div id="login-container">
-        <button id="login_btn" onclick="loginRedirect()">Login</button>
+        <?php if(isset($_SESSION['email'])){
+          $email = $_SESSION['email'];
+          ?>
+        <button id='logout_btn' onclick='logout()'><?php echo($email) ?> - Logout</button>
+        <?php }else{
+          echo("<button id='login_btn' onclick='loginRedirect()'>Login</button>");
+      }?>
       </div>
     </nav>

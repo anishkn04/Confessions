@@ -2,6 +2,9 @@ function loginRedirect() {
   window.location.href = "../html/login.php";
 }
 
+function logout(btn){
+  window.location.href = "../html/logout.php";
+}
 
 function isStrongPassword(password) {
   if (password.length < 8) {

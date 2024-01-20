@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
     $registerQuery = "INSERT INTO users value ('$username', '$email', '$password')";
     $registerSql   = mysqli_query($connection, $registerQuery);
-    echo ("<script> alert(`Let's confess!`); window.location.href = './login.php'</script></script>");
+    echo ("<script> window.location.href = './login.php'</script></script>");
     die();
 
     
