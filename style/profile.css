@@ -10,6 +10,7 @@ body
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: column;
     font-family: "Salsa", cursive;
     background-color: #FCD19C;
 }
@@ -23,8 +24,13 @@ body
     height: 68px;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
+.logo
+{
+    margin-left: 10px;
+}
 .logo-img
 {
     width: 80px;
@@ -50,4 +56,37 @@ body
 .item-a:hover
 {
     color: rgb(69, 180, 175);
+}
+
+.logout
+{
+    margin-right: 10px;
+}
+
+.logout-btn
+{
+    height: 30px;
+    font-family: "Salsa", cursive;
+    background-color: #FFCD29;
+    border: none;
+    border-radius: 10px;
+    width: 64px;
+    text-align: center;
+    transition: all 3s;
+}
+
+
+.logout-btn:hover
+{
+    transform: scale(1.1);
+    background-color: green;
+    color: white;
+}
+
+.copy-section
+{
+    display: flex;
+    height: 100;
+    width: 96vw;
+    background-color: #F24822;
 }
