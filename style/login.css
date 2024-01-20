@@ -142,7 +142,7 @@ form
  
 }
 
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 502px) {
   #text-container {
     display: none;
   }

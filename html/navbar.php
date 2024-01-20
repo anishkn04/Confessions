@@ -8,6 +8,7 @@
           id="logo"
         />
       </div>
+  
       <div id="text-container">
         <p>Confess Your Love.</p>
       </div>
@@ -15,7 +16,7 @@
         <?php if(isset($_SESSION['email'])){
           $email = $_SESSION['email'];
           ?>
-        <button id='logout_btn' onclick='logout()'><?php echo($email) ?> - Logout</button>
+        <button id='logout_btn' onclick='logout()'>Logout</button>
         <?php }else{
           echo("<button id='login_btn' onclick='loginRedirect()'>Login</button>");
       }?>
