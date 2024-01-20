@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <nav class="navBar">
       <div id="logo-container">
