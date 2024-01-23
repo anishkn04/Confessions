@@ -69,12 +69,11 @@ if (isset($_SESSION['email'])) {
 						$confQuery = "SELECT * FROM confessions where usernameBy = '$username'";
 						$confSql   = mysqli_query($connection, $confQuery);
 						if (mysqli_num_rows($confSql) > 0) {
-							$count = 1;
 							while ($row = mysqli_fetch_assoc($confSql)) {
-								echo ("$count: ");
-								echo $row['content'];
+								$content = $row['content'];
+								$confessedTo = $row['usernameTo'];
+								echo ("$confessedTo: $content");
 								echo ('<br>');
-								$count++;
 							}
 						} else {
 							echo ("No confessions made by you yet!");
@@ -92,8 +91,9 @@ if (isset($_SESSION['email'])) {
 						if (mysqli_num_rows($confSql) > 0) {
 							$count = 1;
 							while ($row = mysqli_fetch_assoc($confSql)) {
-								echo ("$count: ");
-								echo $row['content'];
+								$content     = $row['content'];
+								$confessedBy = $row['usernameBy'];
+								echo ("$count: $content - $confessedBy");
 								echo ('<br>');
 								$count++;
 							}
