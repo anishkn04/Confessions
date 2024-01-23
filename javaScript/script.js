@@ -37,7 +37,6 @@ function isStrongPassword(password) {
 
 function register() {
   let password = document.getElementById("password").value;
-
   if (isStrongPassword(password)) {
       alert("Registration successful!");
   }
@@ -45,6 +44,12 @@ function register() {
   {
     return false;
   }
+}
+
+function profileRedirect(){
+  let username = document.getElementById('noLoginProfile').value;
+  let link = "./profile.php?username=" + username;
+  window.location.href = link;
 }
 
 // function emailRetaintion() {
