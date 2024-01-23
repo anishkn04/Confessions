@@ -74,14 +74,14 @@ if (isset($_POST['login'])) {
           echo ("<script> 
                   document.getElementById('invalid_password').innerText = 'Incorrect Password!';
                   document.getElementById('email').value = '" . htmlspecialchars($email) . "';
-                  window.location.href='./login.php?email=" . urlencode($email) . "';
+                  // window.location.href='./login.php?email=" . urlencode($email) . "';
                 </script>");
           die();
       }
   } else {
       // User not registered, redirect with email parameter
       echo ("<script> 
-              window.location.href='./login.php?email=" . urlencode($email) . "'; 
+              // window.location.href='./login.php?email=" . urlencode($email) . "'; 
               document.getElementById('invalid_email').innerText = 'User Not Registered!';
               document.getElementById('email').value = '" . htmlspecialchars($email) . "';
             </script>");

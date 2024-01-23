@@ -35,8 +35,10 @@ if ($connection->query($sqlCreateUsersTable) === FALSE) {
 $sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
     confId INT PRIMARY KEY,
     content TEXT,
-    username VARCHAR(30),
-    FOREIGN KEY (username) REFERENCES users(username)
+    usernameBy VARCHAR(30),
+    usernameTo VARCHAR(30),
+    FOREIGN KEY (usernameBy) REFERENCES users(username),
+    FOREIGN KEY (usernameTo) REFERENCES users(username)
 )";
 
 

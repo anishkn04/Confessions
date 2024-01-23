@@ -2,7 +2,7 @@ function loginRedirect() {
   window.location.href = "../html/login.php";
 }
 
-function logout(btn){
+function logout(){
   window.location.href = "../html/logout.php";
 }
 
