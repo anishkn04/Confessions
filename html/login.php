@@ -58,13 +58,14 @@ if (isset($_POST['login'])) {
   $password = $_POST['password'];
   include './mysqlConnection.php';
 
-  $checkQuery = "SELECT email, pass FROM users WHERE email = '$email'";
+  $checkQuery = "SELECT email, pass, username FROM users WHERE email = '$email'";
   $checkSql = mysqli_query($connection, $checkQuery);
 
   if (mysqli_num_rows($checkSql) > 0) {
       $row = mysqli_fetch_row($checkSql);
 
       if ($row[1] == $password) {
+          $_SESSION['username'] = $row[2];
           $_SESSION['email'] = $email;
           echo ("<script> window.location.href='./confessions.php'; </script>");
           die();

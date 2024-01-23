@@ -5,7 +5,20 @@ if (!isset($_SESSION['email'])) {
   exit();
 }
 
+if(isset($_POST['submit'])){
+  $content = $_POST['content'];
+  $username = $_SESSION['username'];
+  $mentionedUser = $_POST['$mentionedUser'];
+  include './mysqlConnection.php';
 
+  $countQuery = "SELECT count(confId) FROM confessions";
+  $countSql   = mysqli_query($connection, $countQuery);
+  $count = mysqli_fetch_array($countSql);
+  $newConfId = $count[0] + 1;
+
+  $insertQuery = "INSERT INTO confessions values ('$newConfId', '$content', '$username', '$mentionedUser')";
+  $insertSql   = mysqli_query($connection, $insertQuery);
+}
 
 ?>
 
@@ -30,17 +43,20 @@ if (!isset($_SESSION['email'])) {
   </head>
   <body>
   <?php include 'navbar.php'; ?>
-    <main class="confession">
-      <div id="confession-qn">
-        <span id="confession-qn-text">Send me a Message</span>
-      </div>
-      <div id="confession-ans">
-        <textarea id="confession-ans-text"></textarea>
-      </div>
-      <div class="confess_container">
-        <button class="confess_btn">Confess!😁</button>
-      </div>
-    </main>
+    <!-- <main class="confession"> -->
+      <form class="confession" method="post" action="<?php $_SERVER['PHP_SELF'] ?>">
+        <div id="confession-qn">
+          <span id="confession-qn-text">Send me a Message</span>
+        </div>
+        <div id="confession-ans">
+          <input type="text" name="mentionedUser" hidden>
+          <textarea id="confession-ans-text" name="content" oninput="mentionUser()"></textarea>
+        </div>
+        <div class="confess_container">
+          <input type="submit" class="confess_btn" name="submit" value="Confess!😁">
+        </div>
+      </form>
+    <!-- </main> -->
     <script src="../javaScript/script.js"></script>
   </body>
 </html>

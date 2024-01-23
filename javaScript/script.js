@@ -52,6 +52,10 @@ function profileRedirect(){
   window.location.href = link;
 }
 
+function mentionUser(){
+  return;
+}
+
 // function emailRetaintion() {
 //   let mail = document.getElementById("email").value;
 
