@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['email'])) {
-	header("Location: ./login.php");
-	exit();
-}
-
 
 if (isset($_SESSION['email'])) {
 	$email = $_SESSION['email'];
@@ -45,6 +40,11 @@ if (isset($_SESSION['email'])) {
 		</div>
 	</nav>
 	<main>
+		<?php
+			if(!isset($_SESSION['email'])&&!isset($_GET['username'])){
+				echo("Either login, or provide a username to view!");
+			}else{
+		?>
 		<div class="copy-section">
 			<div class="broder-class">
 				<div class="info">Click the button to copy your Confession Link</div>
@@ -86,6 +86,9 @@ if (isset($_SESSION['email'])) {
 					<span class="profile-confessions">Recieved Confessions: </span>
 					<div>
 						<?php
+						if (!isset($_SESSION['email'])) {
+							echo("<a href='./login.php'>Login</a> to view this part!");
+						}else{
 						$confQuery = "SELECT * FROM confessions where usernameTo = '$username'";
 						$confSql   = mysqli_query($connection, $confQuery);
 						if (mysqli_num_rows($confSql) > 0) {
@@ -100,11 +103,13 @@ if (isset($_SESSION['email'])) {
 						} else {
 							echo ("No confessions made for you yet!");
 						}
+						}
 						?>
 					</div>
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 	</main>
 	<script src="../javaScript/script.js"></script>
 </body>
