@@ -1,14 +1,23 @@
 /* RESETTING THE CSS */
+:root {
+  --primary-color: #4BA3C3;
+  --secondary-color: #EA3788;
+  --primary-text: #000000;
+  --temp-color: #CCE6F4;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
+
 html {
   overflow-x: hidden;
 }
+
 body {
-  background-color: #ffe8a3;
+  background-color: var(--temp-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +28,7 @@ body {
 
 /* NavBar CSS */
 .navBar {
-  background-color: #3a8953;
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,8 +39,7 @@ body {
 }
 
 #text-container {
-  /* font-family: "Salsa", cursive; */
-  font-family: "Dancing Script", cursive; /*Setting up the font */
+  font-family: "Dancing Script", cursive; /* Setting up the font */
 }
 
 #text-container p {
@@ -44,7 +52,7 @@ body {
   margin-left: 20px;
 }
 
-/*CSS for Height and Width of the Logo */
+/* CSS for Height and Width of the Logo */
 #logo {
   height: 80px;
   width: 80px;
@@ -68,8 +76,8 @@ body {
   border-radius: 5px;
   padding: 10px;
   border: none;
-  background-color: #fff5;
-  transition: all 0.5;
+  background-color: var(--temp-color);
+  transition: all 0.5s;
   color: white;
 }
 
@@ -80,7 +88,7 @@ body {
 #login_btn:hover,
 .confess_btn:hover {
   color: black;
-  background-color: white;
+  background-color: var(--temp-color);
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -100,7 +108,7 @@ body {
   min-width: 200px;
   max-width: 450px;
   max-height: 350px;
-  background-color: #94c3d2;
+  background-color: var(--primary-color);
   margin: auto;
   border: none;
   font-family: "Salsa", cursive;
@@ -126,7 +134,7 @@ body {
   height: 54%;
   width: 90%;
   padding: 20px;
-  background-color: #bce2ff;
+  background-color: var(--secondary-color);
   border-radius: 10px;
   margin: auto;
 }
@@ -153,11 +161,11 @@ body {
 
 @media screen and (max-width: 750px) {
   #text-container {
-    display: none;
+      display: none;
   }
 
   .navBar {
-    margin-top: 0;
-    height: 100px;
+      margin-top: 0;
+      height: 100px;
   }
 }

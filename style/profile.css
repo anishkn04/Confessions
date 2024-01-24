@@ -1,3 +1,13 @@
+:root {
+    --primary-color: #4BA3C3;
+    --secondary-color: #EA3788;
+    --primary-text: #000000;
+    --temp-color: #CCE6F4;
+
+
+  }
+
+
 * {
     margin: 0px;
     padding: 0px;
@@ -7,17 +17,17 @@
 body {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     font-family: "Salsa", cursive;
-    background-color: #fcd19c;
+    background-color: var(--temp-color);
     height: 100vh;
 }
 
 .navBar {
     margin-top: 23px;
     display: flex;
-    background-color: #f24822;
+    background-color: var(--primary-color);
     width: 96vw;
     height: 68px;
     align-items: center;
@@ -41,7 +51,7 @@ body {
 
 .item-a {
     text-decoration: none;
-    color: wheat;
+    color: var(--primary-text);
     font-size: 30px;
     transition: all 0.5;
     padding: 30px;
@@ -51,14 +61,14 @@ body {
     color: rgb(69, 180, 175);
 }
 
-.logout {
-    margin-right: 10px;
-}
+
 
 .logout-btn {
+    margin-right: 10px;
     height: 30px;
     font-family: "Salsa", cursive;
-    background-color: #ffcd29;
+    background-color: var(--secondary-color);
+    text-decoration: none;
     border: none;
     border-radius: 10px;
     padding: 6px;
@@ -69,15 +79,15 @@ body {
 .logout-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: red;
-    color: white;
+    color: var(--primary-text);
+    color: var(--primary-text);
 }
 
 main {
     display: flex;
     flex: 1;
     width: 96vw;
-    background-color: #f24822;
+    background-color: var(--primary-color);
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
@@ -89,7 +99,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #94c3d2;
+    background-color: var(--temp-color);
     border-radius: 12px;
     padding: 30px;
     margin: 10px;
@@ -99,7 +109,7 @@ main {
 
 .info {
     border: 2px solid white;
-    background-color: white;
+    background-color: var(--temp-color);
     border-radius: 20px;
     padding: 20px;
     margin-right: 10px;
@@ -117,17 +127,17 @@ main {
     padding: 20px;
     text-align: center;
     border: none;
-    background-color: darkslategray;
-    color: #f24822;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     cursor: pointer;
     transition: all 0.3s;
-    color: white;
+   
     font-family: "Salsa", cursive;
     font-weight: lighter;
 }
 
 .click-info:hover {
-    background-color: #ffcd29;
+    
     cursor: pointer;
 }
 
@@ -143,6 +153,7 @@ main {
 }
 
 .profile-confessions{
+    border-bottom: 1px solid var(--temp-color);
 	font-size: 20px;
 	border-bottom: 1px solid;
 	font-family: 'Times New Roman', Times, serif;

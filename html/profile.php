@@ -24,17 +24,12 @@ if (isset($_SESSION['email'])) {
 
 <body>
 	<nav class="navBar">
-
+      
 		<div class="logo">
 			<img src="../images/logo-no-background.png" alt="Logo-Image" class="logo-img" />
 		</div>
 
-		<div class="nextItems">
-			<ul class="items-flex">
-				<li class="item"><a href="#sentConfessions" class="item-a"> Sent</a></li>
-				<li class="item"><a href="#receivedConfessions" class="item-a"> Recieved</a></li>
-			</ul>
-		</div>
+		
 		<?php if (isset($_SESSION['email'])) {
 			$email = $_SESSION['email'];
 			?>
