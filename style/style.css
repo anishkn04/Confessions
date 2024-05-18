@@ -71,14 +71,14 @@ body {
 
 #login_btn,
 .confess_btn,
-#logout_btn,#profile_btn {
+#logout_btn{
   font-family: "Salsa", cursive;
   border-radius: 5px;
   padding: 10px;
-  border: none;
   background-color: var(--temp-color);
-  transition: all 0.5s;
   color: white;
+  border: none;
+  transition: all 0.5s;
 }
 
 #logout_btn {
@@ -86,7 +86,18 @@ body {
 }
 
 #profile_btn {
+  border-radius: 5px;
+  font-family: "Salsa", cursive;
+  text-decoration: none;
   background-color: green;
+  transition: all 0.5s;
+  padding: 10px;
+  border: none;
+}
+
+#profile_btn a{
+  color: white;
+  text-decoration: none;
 }
 
 #login_btn:hover,
@@ -97,7 +108,12 @@ body {
   cursor: pointer;
 }
 
-#logout_btn:hover,#profile_btn:hover {
+#logout_btn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#profile_btn:hover{
   cursor: pointer;
   transform: scale(1.1);
 }
