@@ -51,7 +51,7 @@ function isStrongPassword(password) {
 function register() {
   let password = document.getElementById("password").value;
   if (isStrongPassword(password)) {
-      alert("Registration successful!");
+    return true;
   }
   else
   {

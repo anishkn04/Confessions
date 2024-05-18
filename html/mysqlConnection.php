@@ -43,7 +43,7 @@ try {
 
 
 } catch (Exception $e) {
-    header("Location: error.php?type=ConnectionError");
+    echo "<script> alert($e) </script>";
 } catch (Error $e) {
-    header("Location: error.php?type=ConnectionError");
+    echo "<script> alert($e) </script>";
 }

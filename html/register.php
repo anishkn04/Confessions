@@ -11,16 +11,13 @@ if (isset($_POST['submit'])) {
         while ($row = mysqli_fetch_row($checkSql)) {
             if ($row[0] == $username || $row[1] == $email) {
                 echo ("<script>alert('Username or Email already in use'); window.location.href = './register.php'</script>");
-                // $self = $_SERVER['PHP_SELF'];
-                // unset($_POST['submit']);
-                // header(`Location: $self`);
                 die();
             }
         }
 
         $registerQuery = "INSERT INTO users value ('$username', '$email', '$password')";
         $registerSql   = mysqli_query($connection, $registerQuery);
-        echo ("<script> window.location.href = './login.php'</script></script>");
+        echo ("<script>alert('User created succesfully'); window.location.href = './login.php'</script></script>");
         die();
     } catch (Exception $e) {
         header("Location: error.php?type=LoginError");
