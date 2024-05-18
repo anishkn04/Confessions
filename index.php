@@ -8,5 +8,3 @@ if($username==null || $username = ""){
 }else{
     header("Location: /html/profile.php?username=$username");
 }
-
-?>

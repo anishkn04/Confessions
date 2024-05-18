@@ -3,9 +3,7 @@
     --secondary-color: #EA3788;
     --primary-text: #000000;
     --temp-color: #CCE6F4;
-
-
-  }
+}
 
 
 * {
@@ -78,6 +76,8 @@ body {
     background-color: var(--temp-color);
     transition: all 0.5s;
     color: white;
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+
 }
 
 #logout_btn {
@@ -92,14 +92,14 @@ body {
 .confess_btn:hover {
     color: black;
     background-color: var(--temp-color);
-    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
 #logout_btn:hover,
 #profile_btn:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -132,13 +132,14 @@ main {
     border-radius: 20px;
     padding: 20px;
     margin-right: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s;
 }
 
 .info:hover {
     background-color: #ffcd29;
     cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .click-info {
@@ -150,7 +151,6 @@ main {
     color: var(--primary-color);
     cursor: pointer;
     transition: all 0.3s;
-   
     font-family: "Salsa", cursive;
     font-weight: lighter;
 }
