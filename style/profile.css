@@ -82,6 +82,7 @@ body {
 
 #logout_btn {
     background-color: red;
+    margin-left: 10px;
 }
 
 #profile_btn {
@@ -182,6 +183,27 @@ main {
 	padding: 5px;
 }
 
+
+#back_btn {
+    border-radius: 5px;
+    font-family: "Salsa", cursive;
+    text-decoration: none;
+    background-color: green;
+    transition: all 0.5s;
+    padding: 10px;
+    border: none;
+  }
+
+
+  #back_btn a{
+    color: white;
+    text-decoration: none;
+  }
+
+  #back_btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 @media screen and (max-width: 600px) {
     #confessions-section {
         width: 100%;
