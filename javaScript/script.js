@@ -17,6 +17,7 @@ function copyToClipBoard(username){
     address = address + `?username=${username}`
   }
   navigator.clipboard.writeText(address);
+  alert(address+" copied to Clipboard")
 }
 
 function isStrongPassword(password) {

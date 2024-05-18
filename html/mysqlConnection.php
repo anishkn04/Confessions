@@ -28,13 +28,13 @@ try {
 
 
     $sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
-    confId INT PRIMARY KEY AUTO INCREMENT,
-    content TEXT,
-    usernameBy VARCHAR(30),
-    usernameTo VARCHAR(30),
-    FOREIGN KEY (usernameBy) REFERENCES users(username),
-    FOREIGN KEY (usernameTo) REFERENCES users(username)
-)";
+        confId INT PRIMARY KEY AUTO_INCREMENT,
+        content TEXT,
+        usernameBy VARCHAR(30),
+        usernameTo VARCHAR(30),
+        FOREIGN KEY (usernameBy) REFERENCES users(username),
+        FOREIGN KEY (usernameTo) REFERENCES users(username)
+    )";
 
 
     if ($connection->query($sqlCreateConfessionsTable) === FALSE) {
