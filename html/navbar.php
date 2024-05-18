@@ -16,6 +16,9 @@
       if ($currentPage !== 'profile.php') {
         echo "<button id='profile_btn'><a href='../html/profile.php'>Profile</a></button>";
       }
+      else{
+        echo "<button id='back_btn'><a href='../html/confessions.php'>Back</a></button>";
+      }
       echo "<button id='logout_btn' onclick='logout()'>Logout</button>";
     } else {
       echo "<button id='login_btn' onclick='loginRedirect()'>Login</button>";
