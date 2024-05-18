@@ -1,8 +1,10 @@
 <?php
 
+$env    = parse_ini_file('.env');
+
 $servername = "localhost";
-$uname = "root";
-$pass = "";
+$uname = $env["DBUSERNAME"];
+$pass = $env["DBPW"];
 $dbname = "confessions";
 $connection = new mysqli($servername, $uname, $pass);
 

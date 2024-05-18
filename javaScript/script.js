@@ -6,6 +6,12 @@ function logout(){
   window.location.href = "../html/logout.php";
 }
 
+function profileRedirect(){
+window.location.href = "../html/profile.php";
+}
+
+
+
 function isStrongPassword(password) {
   if (password.length < 8) {
       alert("Password is not strong enough. It should be at least 8 characters long.");

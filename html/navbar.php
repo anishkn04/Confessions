@@ -10,7 +10,8 @@
     <?php if (isset($_SESSION['email'])) {
       $email = $_SESSION['email'];
       ?>
-      <a href='./profile.php'>Profile</a>
+      <!-- <a href='./profile.php'>Profile</a> -->
+      <button id='profile_btn' onclick='profileRedirect()'>Profile</button>
       <button id='logout_btn' onclick='logout()'>Logout</button>
     <?php } else {
       echo ("<button id='login_btn' onclick='loginRedirect()'>Login</button>");
