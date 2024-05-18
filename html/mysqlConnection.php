@@ -5,7 +5,7 @@ $env = parse_ini_file('.env');
 $servername = "localhost";
 $uname      = $env["DBUSERNAME"];
 $pass       = $env["DBPW"];
-$dbname     = "confessions";
+$dbname     = "id22184385_confessions";
 try {
     $connection = new mysqli($servername, $uname, $pass);
 
@@ -28,7 +28,7 @@ try {
 
 
     $sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
-    confId INT PRIMARY KEY,
+    confId INT PRIMARY KEY AUTO INCREMENT,
     content TEXT,
     usernameBy VARCHAR(30),
     usernameTo VARCHAR(30),
@@ -38,7 +38,7 @@ try {
 
 
     if ($connection->query($sqlCreateConfessionsTable) === FALSE) {
-        die("Error creating table 'confessions': " . $connection->error);
+        throw(new Exception("Error creating table 'confessions': " . $connection->error));
     }
 
 
