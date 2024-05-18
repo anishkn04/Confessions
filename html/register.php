@@ -1,28 +1,32 @@
 <?php
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $email    = $_POST['email'];
-    $password = $_POST['password'];
-    include './mysqlConnection.php';
+    try {
+        $username = $_POST['username'];
+        $email    = $_POST['email'];
+        $password = $_POST['password'];
+        include './mysqlConnection.php';
 
-    $checkQuery = "SELECT username, email FROM users";
-    $checkSql   = mysqli_query($connection, $checkQuery);
-    while ($row = mysqli_fetch_row($checkSql)) {
-        if ($row[0] == $username || $row[1] == $email) {
-            echo ("<script>alert('Username or Email already in use'); window.location.href = './register.php'</script>");
-            // $self = $_SERVER['PHP_SELF'];
-            // unset($_POST['submit']);
-            // header(`Location: $self`);
-            die();
+        $checkQuery = "SELECT username, email FROM users";
+        $checkSql   = mysqli_query($connection, $checkQuery);
+        while ($row = mysqli_fetch_row($checkSql)) {
+            if ($row[0] == $username || $row[1] == $email) {
+                echo ("<script>alert('Username or Email already in use'); window.location.href = './register.php'</script>");
+                // $self = $_SERVER['PHP_SELF'];
+                // unset($_POST['submit']);
+                // header(`Location: $self`);
+                die();
+            }
         }
+
+        $registerQuery = "INSERT INTO users value ('$username', '$email', '$password')";
+        $registerSql   = mysqli_query($connection, $registerQuery);
+        echo ("<script> window.location.href = './login.php'</script></script>");
+        die();
+    } catch (Exception $e) {
+        header("Location: error.php?type=LoginError");
+    } catch (Error $e) {
+        header("Location: error.php?type=LoginError");
     }
-
-    $registerQuery = "INSERT INTO users value ('$username', '$email', '$password')";
-    $registerSql   = mysqli_query($connection, $registerQuery);
-    echo ("<script> window.location.href = './login.php'</script></script>");
-    die();
-
-    
 }
 ?>
 
@@ -32,11 +36,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../images/confessions-favicon-color.png"
-    />
+    <link rel="icon" type="image/x-icon" href="../images/confessions-favicon-color.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Salsa&display=swap"
