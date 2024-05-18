@@ -93,7 +93,7 @@ $GLOBALS['username'] = ""
 					</div>
 				</div>
 				<div class="broder-class">
-					<div class="info" onclick="copyToClipBoard(this, '<?php echo $GLOBALS['username'] ?>')">Click here to copy your Confession Link</div>
+					<div class="info" onclick="copyToClipBoard('<?php echo $GLOBALS['username'] ?>')">Click here to copy your Confession Link</div>
 				</div>
 			</div>
 		<?php } ?>

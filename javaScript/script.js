@@ -14,7 +14,7 @@ function copyToClipBoard(username){
   address = window.location.href;
   console.log(address)
   if(!address.includes("?username")){
-    address = window.location + `?username=${username}`
+    address = address + `?username=${username}`
   }
   navigator.clipboard.writeText(address);
 }
