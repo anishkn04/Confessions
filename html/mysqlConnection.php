@@ -1,40 +1,33 @@
 <?php
 
-$env    = parse_ini_file('.env');
+$env = parse_ini_file('.env');
 
 $servername = "localhost";
-$uname = $env["DBUSERNAME"];
-$pass = $env["DBPW"];
-$dbname = "confessions";
-$connection = new mysqli($servername, $uname, $pass);
+$uname      = $env["DBUSERNAME"];
+$pass       = $env["DBPW"];
+$dbname     = "confessions";
+try {
+    $connection = new mysqli($servername, $uname, $pass);
 
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
+    $sqlCreateDatabase = "CREATE DATABASE IF NOT EXISTS $dbname";
+    if ($connection->query($sqlCreateDatabase) === FALSE) {
+        die("Error creating database: " . $connection->error);
+    }
 
-$sqlCreateDatabase = "CREATE DATABASE IF NOT EXISTS $dbname";
-if ($connection->query($sqlCreateDatabase) === FALSE) {
-    die("Error creating database: " . $connection->error);
-} 
+    $connection->select_db($dbname);
 
-
-$connection->select_db($dbname);
-
-
-
-
-$sqlCreateUsersTable = "CREATE TABLE IF NOT EXISTS users (
+    $sqlCreateUsersTable = "CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(30) PRIMARY KEY,
     email VARCHAR(30),
     pass VARCHAR(30)
-)";
+    )";
 
-if ($connection->query($sqlCreateUsersTable) === FALSE) {
-    die("Error creating table 'users': " . $connection->error);
-} 
+    if ($connection->query($sqlCreateUsersTable) === FALSE) {
+        die("Error creating table 'users': " . $connection->error);
+    }
 
 
-$sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
+    $sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
     confId INT PRIMARY KEY,
     content TEXT,
     usernameBy VARCHAR(30),
@@ -44,10 +37,13 @@ $sqlCreateConfessionsTable = "CREATE TABLE IF NOT EXISTS confessions (
 )";
 
 
-if ($connection->query($sqlCreateConfessionsTable) === FALSE) {
-    die("Error creating table 'confessions': " . $connection->error);
-} 
+    if ($connection->query($sqlCreateConfessionsTable) === FALSE) {
+        die("Error creating table 'confessions': " . $connection->error);
+    }
 
 
-
-
+} catch (Exception $e) {
+    header("Location: error.php?type=ConnectionError");
+} catch (Error $e) {
+    header("Location: error.php?type=ConnectionError");
+}
