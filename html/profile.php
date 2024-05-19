@@ -34,7 +34,7 @@ $GLOBALS['username'] = ""
 		} else {
 			?>
 			<div id="confessions-section">
-				<div class="broder-class confessions-broder-class">
+				<div class="broder-class confessions-broder-class height">
 					<div id="sentConfessions" class="confession-container">
 						<span class="profile-confessions">Sent Confessions: </span>
 						<div>
@@ -92,7 +92,7 @@ $GLOBALS['username'] = ""
 						</div>
 					</div>
 				</div>
-				<div class="broder-class">
+				<div class="broder-class change">
 					<div class="info" onclick="copyToClipBoard('<?php echo $GLOBALS['username'] ?>')">Click here to copy your Confession Link</div>
 				</div>
 			</div>
