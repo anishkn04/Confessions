@@ -4,7 +4,7 @@ $request  = $_SERVER['REQUEST_URI'];
 $username = ltrim($request, "/");
 
 // Check if $username is empty, null, or "index.php"
-if ($username == null || $username == "" || $username == "index.php") {
+if ($username == null || $username == "" || str_contains($username, "index.php")) {
     header("Location: ./html/confessions.php");
     exit();
 } else {

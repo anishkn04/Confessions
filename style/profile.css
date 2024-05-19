@@ -3,7 +3,7 @@
     --secondary-color: #ea3764;
     --primary-text: #000000;
     --temp-color: #CCE6F4;
-  }
+}
 
 
 * {
@@ -32,13 +32,13 @@ body {
     height: 68px;
     width: 100vw;
     min-width: 280px;
-    
+
 }
 
 #text-container {
     font-family: "Dancing Script", cursive;
     /* Setting up the font */
-   
+
 }
 
 #text-container p {
@@ -87,7 +87,6 @@ body {
     font-size: 1.1rem;
     margin-left: 10px;
     box-shadow: 1px 1px 1px black;
-
 }
 
 
@@ -95,9 +94,9 @@ body {
 #login_btn:hover,
 .confess_btn:hover {
     color: var(--temp-color);
-  background-color: var(--primary-color);
-  cursor: pointer;
-  box-shadow: 3px 3px 5px black;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 3px 3px 5px black;
 }
 
 #logout_btn:hover,
@@ -113,24 +112,22 @@ main {
     background-color: var(--primary-color);
     align-items: center;
     justify-content: center;
-    /* margin-bottom: 20px; */
     gap: 50px;
-    flex-direction: column;
 }
 
 .broder-class {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--temp-color);
-    border-radius: 12px;
-    padding: 29px;
-    /* margin: 10px; */
-    /* width: 550px; */
     min-width: 550px;
+    min-height: 10%;
 }
 
-.change{
+.confessions-broder-class {
+    flex: 1;
+}
+
+.change {
     background-color: var(--primary-color);
 }
 
@@ -164,14 +161,7 @@ main {
 }
 
 .click-info:hover {
-    
     cursor: pointer;
-}
-
-.confessions-broder-class {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
 }
 
 #line {
@@ -179,17 +169,51 @@ main {
     border-bottom: 1px solid;
 }
 
-.profile-confessions{
+#confessions-section {
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.profile-confessions {
     border-bottom: 1px solid var(--temp-color);
-	font-size: 20px;
-	border-bottom: 1px solid;
-	font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }
 
-.confession-container{
-	padding: 5px;
+.main-confession-data {
+    background-color: var(--temp-color);
+    padding: 5px;
+    height: 90%;
+    background-color: #98DBFF;
+    border-radius: 5px;
 }
 
+.confession-container {
+    background-color: var(--temp-color);
+    height: 90%;
+    width: 45%;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.data-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.data-container .content {
+    flex-shrink: 0;
+}
+
+.data-container .username {
+    flex-shrink: 0;
+}
 
 #back_btn {
     border-radius: 5px;
@@ -200,25 +224,27 @@ main {
     padding: 10px;
     border: none;
     display: none;
-  }
+}
 
 
-  #back_btn a{
+#back_btn a {
     color: white;
     text-decoration: none;
-  }
+}
 
-  #back_btn:hover{
+#back_btn:hover {
     cursor: pointer;
     transform: scale(1.1);
-  }
+}
 
 
 @media screen and (max-width: 600px) {
     #confessions-section {
         width: 100%;
         height: 80%;
+        gap: 10px;
     }
+
     .broder-class {
         min-width: 320px;
         width: 100%;
@@ -227,12 +253,22 @@ main {
         /* height: 80%; */
     }
 
-    #text-container{
+    #text-container {
         display: none;
     }
 
-    .height{
-        height: 80%;
-       
+    .confession-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .confessions-broder-class {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .confession-container {
+        width: 90%;
     }
 }

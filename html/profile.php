@@ -5,7 +5,7 @@ if (isset($_SESSION['email'])) {
 	$email = $_SESSION['email'];
 }
 $GLOBALS['username'] = ""
-?>
+	?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,33 +30,36 @@ $GLOBALS['username'] = ""
 		<?php
 		if (!isset($_SESSION['email']) && !isset($_GET['username'])) {
 			echo ("Either login, or provide a username to view!<br>");
-			echo("<input type='text' id='noLoginProfile'> <input type='submit' onclick='profileRedirect()'>");
+			echo ("<input type='text' id='noLoginProfile'> <input type='submit' onclick='profileRedirect()'>");
 		} else {
 			?>
 			<div id="confessions-section">
 				<div class="broder-class confessions-broder-class height">
 					<div id="sentConfessions" class="confession-container">
-						<span class="profile-confessions">Sent Confessions: </span>
-						<div>
+						<div class="profile-confessions">Sent Confessions</div>
+						<div class="main-confession-data">
+							<div style="display: flex; justify-content: space-around; background-color: white; padding: 5px; border-radius: 4px;">
+								<div class='username'>User</div>
+								<div class='content'>Confession</div>
+							</div>
 							<?php
-							require('./mysqlConnection.php');
+							require ('./mysqlConnection.php');
 							if (!isset($_GET['username'])) {
-								$userQuery = "SELECT * FROM users where email='$email'";
-								$userSql   = mysqli_query($connection, $userQuery);
-								$user      = mysqli_fetch_assoc($userSql);
-								$GLOBALS['username']  = $user["username"];
+								$userQuery           = "SELECT * FROM users where email='$email'";
+								$userSql             = mysqli_query($connection, $userQuery);
+								$user                = mysqli_fetch_assoc($userSql);
+								$GLOBALS['username'] = $user["username"];
 							} else {
 								$GLOBALS['username'] = $_GET["username"];
 							}
-							$username = $GLOBALS['username'];
+							$username  = $GLOBALS['username'];
 							$confQuery = "SELECT * FROM confessions where usernameBy = '$username'";
 							$confSql   = mysqli_query($connection, $confQuery);
 							if (mysqli_num_rows($confSql) > 0) {
 								while ($row = mysqli_fetch_assoc($confSql)) {
 									$content     = $row['content'];
 									$confessedTo = $row['usernameTo'];
-									echo ("$confessedTo: $content");
-									echo ('<br>');
+									echo ("<div class='data-container'><div class='username'>$confessedTo</div><div class='content'>$content</div></div>");
 								}
 							} else {
 								echo ("No confessions made by you yet!");
@@ -64,15 +67,18 @@ $GLOBALS['username'] = ""
 							?>
 						</div>
 					</div>
-					<div id="line"></div>
 					<div id="receivedConfessions" class="confession-container">
-						<span class="profile-confessions">Recieved Confessions: </span>
-						<div>
+						<div class="profile-confessions">Recieved Confessions</div>
+						<div class="main-confession-data">
+							<div style="display: flex; justify-content: space-around; background-color: white; padding: 5px; border-radius: 4px;">
+								<div class='content'>Confession</div>
+								<div class='username'>User</div>
+							</div>
 							<?php
 							if (!isset($_SESSION['email'])) {
 								echo ("<a href='./login.php'>Login</a> to view this part!");
 							} else {
-								$username = $GLOBALS['username'];
+								$username  = $GLOBALS['username'];
 								$confQuery = "SELECT * FROM confessions where usernameTo = '$username'";
 								$confSql   = mysqli_query($connection, $confQuery);
 								if (mysqli_num_rows($confSql) > 0) {
@@ -80,8 +86,7 @@ $GLOBALS['username'] = ""
 									while ($row = mysqli_fetch_assoc($confSql)) {
 										$content     = $row['content'];
 										$confessedBy = $row['usernameBy'];
-										echo ("$count: $content - $confessedBy");
-										echo ('<br>');
+										echo ("<div class='data-container'><div class='content'>$content</div><div class='username'>$confessedBy</div></div>");
 										$count++;
 									}
 								} else {
@@ -93,7 +98,8 @@ $GLOBALS['username'] = ""
 					</div>
 				</div>
 				<div class="broder-class change">
-					<div class="info" onclick="copyToClipBoard('<?php echo $GLOBALS['username'] ?>')">Click here to copy your Confession Link</div>
+					<div class="info" onclick="copyToClipBoard('<?php echo $GLOBALS['username'] ?>')">Click here to copy
+						your Confession Link</div>
 				</div>
 			</div>
 		<?php } ?>
