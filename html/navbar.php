@@ -14,10 +14,10 @@
       
       $currentPage = basename($_SERVER['PHP_SELF']);
       if ($currentPage !== 'profile.php') {
-        echo "<button id='profile_btn'><a href='../html/profile.php'>Profile</a></button>";
+        echo "<a id='profile_btn' href='../html/profile.php'>Profile</a>";
       }
       else{
-        echo "<button id='back_btn'><a href='../html/confessions.php'>Back</a></button>";
+        echo "<a href='../html/confessions.php' id='back_btn'>Back</a>";
       }
       echo "<button id='logout_btn' onclick='logout()'>Logout</button>";
     } else {

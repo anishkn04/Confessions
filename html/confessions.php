@@ -74,14 +74,12 @@ mysqli_close($connection);
   <?php include 'navbar.php'; ?>
   <form class="confession" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div id="confession-qn">
-      <span id="confession-qn-text">Send me a Message</span>
+      <span id="confession-qn-text">Send a Message!</span>
     </div>
     <div id="mention">
-      <input type="text" id="mention-text" placeholder="Mention Confidante" name="mentionedUser" required>
+      <input type="text" id="mention-text" placeholder="Mention Someone ('cheeku' for test)" name="mentionedUser" required >
     </div>
-    <div id="confession-ans">
-      <textarea id="confession-ans-text" name="content"></textarea>
-    </div>
+    <textarea id="confession-ans" name="content"></textarea>
     <div class="confess_container">
       <input type="submit" class="confess_btn" name="submit" value="Confess!😁">
     </div>
