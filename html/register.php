@@ -3,7 +3,7 @@ if (isset($_POST['submit'])) {
     try {
         $username = $_POST['username'];
         $email    = $_POST['email'];
-        $password = $_POST['password'];
+        $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
         include './mysqlConnection.php';
 
         $checkQuery = "SELECT username, email FROM users";
@@ -15,14 +15,14 @@ if (isset($_POST['submit'])) {
             }
         }
 
-        $registerQuery = "INSERT INTO users value ('$username', '$email', '$password')";
+        $registerQuery = "INSERT INTO users value ('$username', '$email', '$hashedPassword')";
         $registerSql   = mysqli_query($connection, $registerQuery);
         echo ("<script>alert('User created succesfully'); window.location.href = './login.php'</script></script>");
         die();
     } catch (Exception $e) {
-        header("Location: error.php?type=LoginError");
+        header("Location: error.php?type=RegisterError");
     } catch (Error $e) {
-        header("Location: error.php?type=LoginError");
+        header("Location: error.php?type=RegisterError");
     }
 }
 ?>

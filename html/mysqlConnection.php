@@ -19,7 +19,7 @@ try {
     $sqlCreateUsersTable = "CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(30) PRIMARY KEY,
     email VARCHAR(30),
-    pass VARCHAR(30)
+    pass VARCHAR(255)
     )";
 
     if ($connection->query($sqlCreateUsersTable) === FALSE) {

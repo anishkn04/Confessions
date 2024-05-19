@@ -58,7 +58,7 @@ if (isset($_SESSION['email'])) {
       if (mysqli_num_rows($checkSql) > 0) {
         $row = mysqli_fetch_row($checkSql);
 
-        if ($row[1] == $password) {
+        if (password_verify($password, $row[1])) {
           $_SESSION['username'] = $row[2];
           $_SESSION['email']    = $email;
           echo ("<script> window.location.href='./confessions.php'; </script>");
