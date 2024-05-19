@@ -52,8 +52,8 @@ if (isset($_POST['submit'])) {
             <input type="text" id="username" name="username" class="input-field" placeholder="Username">
             <input type="email" id="email" name="email" class="input-field" placeholder="Email">
             <input type="password" id="password" name="password" class="input-field" placeholder="Password">
-            <button type="submit" id="submit" name="submit" onclick="return register()">Register</button>
-            <p class="invalid_password" id="invalid_password"></p>
+            <button type="submit" id="submit" class="submit" name="submit" onclick="return register()">Register</button>
+            <p class="invalid_password" hidden id="invalid_password"></p>
         </form>
     </div>
 

@@ -36,7 +36,8 @@ body {
 }
 
 #text-container {
-  font-family: "Dancing Script", cursive; /* Setting up the font */
+  font-family: "Dancing Script", cursive;
+  /* Setting up the font */
 }
 
 #text-container p {
@@ -89,10 +90,11 @@ body {
 
 .invalid_email,
 .invalid_password {
-  margin-bottom: 15px;
   color: var(--error-color);
   font-size: small;
-  margin-top: 3px;
+  text-align: center;
+  bottom: 30px;
+  position: fixed;
 }
 
 .submit {
@@ -144,6 +146,7 @@ body {
   margin: auto;
   border: none;
   font-family: "Salsa", cursive;
+  background-color: var(--primary-color);
 }
 
 form {
@@ -160,11 +163,36 @@ form {
 
 @media screen and (max-width: 502px) {
   #text-container {
-      display: none;
+    display: none;
+  }
+
+  .login-space {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+
+  form {
+    background-color: unset;
+    border-radius: 0;
+  }
+
+  .submit {
+    background-color: var(--temp-color);
+    color: var(--primary-color);
+  }
+
+  .login-space{
+    backdrop-filter: blur(1px);
+  }
+
+  .submit:hover {
+    box-shadow: 2px 2px 2px var(--secondary-color);
   }
 
   .navBar {
-      margin-top: 0;
-      height: 100px;
+    margin-top: 0;
+    height: 100px;
   }
 }

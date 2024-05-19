@@ -2,48 +2,54 @@ function loginRedirect() {
   window.location.href = "../html/login.php";
 }
 
-function logout(){
+function logout() {
   window.location.href = "../html/logout.php";
 }
 
-function profileRedirect(){
-window.location.href = "../html/profile.php";
+function profileRedirect() {
+  window.location.href = "../html/profile.php";
 }
 
-function copyToClipBoard(username){
+function copyToClipBoard(username) {
   address = window.location.href;
   console.log(address)
-  if(!address.includes("?username")){
+  if (!address.includes("?username")) {
     address = address + `?username=${username}`
   }
   navigator.clipboard.writeText(address);
-  alert(address+" copied to Clipboard")
+  alert(address + " copied to Clipboard")
 }
 
 function isStrongPassword(password) {
+  const error = document.getElementById("invalid_password");
   if (password.length < 8) {
-      alert("Password is not strong enough. It should be at least 8 characters long.");
-      return false;
+    error.hidden = false;
+    error.innerText = "Password is not strong enough. It should be at least 8 characters long."
+    return false;
   }
 
   if (!/[A-Z]/.test(password)) {
-      alert("Password is not strong enough. It should contain at least one uppercase letter.");
-      return false;
+    error.hidden = false;
+    error.innerText = "Password is not strong enough. It should contain at least one uppercase letter."
+    return false;
   }
 
   if (!/[a-z]/.test(password)) {
-      alert("Password is not strong enough. It should contain at least one lowercase letter.");
-      return false;
+    error.hidden = false;
+    error.innerText = "Password is not strong enough. It should contain at least one lowercase letter."
+    return false;
   }
 
   if (!/[0-9]/.test(password)) {
-      alert("Password is not strong enough. It should contain at least one digit.");
-      return false;
+    error.hidden = false;
+    error.innerText = "Password is not strong enough. It should contain at least one digit."
+    return false;
   }
 
   if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      alert("Password is not strong enough. It should contain at least one special character.");
-      return false;
+    error.hidden = false;
+    error.innerText = "Password is not strong enough. It should contain at least one special character."
+    return false;
   }
 
   return true;
@@ -54,19 +60,18 @@ function register() {
   if (isStrongPassword(password)) {
     return true;
   }
-  else
-  {
+  else {
     return false;
   }
 }
 
-function profileRedirect(){
+function profileRedirect() {
   let username = document.getElementById('noLoginProfile').value;
   let link = "./profile.php?username=" + username;
   window.location.href = link;
 }
 
-function mentionUser(){
+function mentionUser() {
   return;
 }
 
